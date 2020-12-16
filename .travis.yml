@@ -32,6 +32,22 @@ matrix:
       compiler: clang++
       env:
         - SCAN=echo
+    
+    #powerjobs
+    - os: linux
+      arch: ppc64le
+      cache: ccache
+      compiler: gcc
+      env:
+        - SCAN=echo
+
+    - os: linux
+      arch: ppc64le
+      cache: ccache
+      compiler: clang++
+      env:
+        - SCAN=scan-build
+        - OPENMPFLAG=--disable-openmp
 
 before_install:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
